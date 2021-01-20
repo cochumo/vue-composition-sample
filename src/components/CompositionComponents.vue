@@ -16,11 +16,16 @@
       <p>{{ count }}</p>
       <button @click="countUp()">countUp</button>
     </div>
+    <div>
+      <p>
+        {{ showUserName }}
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 
 export default {
   props: {
@@ -48,11 +53,16 @@ export default {
       count.value += 1;
     };
 
+    const showUserName = computed(() => {
+      return `userは${props.user}で現在のカウントは${count.value}です`;
+    });
+
     return {
       skills,
       improveSkills,
       count,
       countUp,
+      showUserName,
     };
   },
 };
