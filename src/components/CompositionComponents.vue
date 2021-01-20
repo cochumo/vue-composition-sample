@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { computed, reactive, ref } from "vue";
+import { computed, reactive, ref, watch } from "vue";
 
 export default {
   props: {
@@ -52,6 +52,11 @@ export default {
     const countUp = () => {
       count.value += 1;
     };
+
+    watch(count, (newValue, oldValue) => {
+      console.log(`oldValue: ${oldValue}`);
+      console.log(`newValue: ${newValue}`);
+    });
 
     const showUserName = computed(() => {
       return `userは${props.user}で現在のカウントは${count.value}です`;
