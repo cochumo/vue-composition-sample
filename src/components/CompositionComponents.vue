@@ -56,6 +56,9 @@ export default {
     watch(count, (newValue, oldValue) => {
       console.log(`oldValue: ${oldValue}`);
       console.log(`newValue: ${newValue}`);
+      setTimeout(() => {
+        console.log("1000");
+      }, 1000);
     });
 
     const showUserName = computed(() => {
